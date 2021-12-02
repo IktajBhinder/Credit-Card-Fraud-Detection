@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% block body %}
+<!-- ======= Header ======= -->
+<
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div id="heroCarousel" data-bs-interval="15000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    <ol class="carousel-indicators" id="hero-carousel-indicators">
+      
+
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active" style="background-image: url(/static/img/c1q.jpg)">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__animated animate__fadeInDown">Welcome to<span><br>Credit Card Fraud Detection</span></h2>
+            <p class="animate__animated animate__fadeInUp">This Website is built for the purpose of detecting Credit Card Fraud.  The website contains an embedded ML model which predicts the results. It also contains features such as Analysis and Visualization</p>
+            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item" style="background-image: url(/static/img/29-Best-Fraud-Detection-Startups-Based-Out-of-Israel.jpg)">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__animated animate__fadeInDown">What is Credit Card Fraud?</h2>
+            <p class="animate__animated animate__fadeInUp">Credit card fraud is a kind of theft or fraud that involves a credit card. The aim of credit card fraud is to purchase goods without paying, or to steal money from someone else’s credit.</p>
+            <!--<a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            --></div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item" style="background-image: url(/static/img/7-credit-card-fraud-detection-with-random-forest.png);">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__animated animate__fadeInDown">USE OF ML IN THIS PROJECT</h2>
+            <p class="animate__animated animate__fadeInUp">This project uses ML so as to build a predictive model.
+              Predictive modeling is the general concept of building a model that is capable of making predictions. Typically, such a model includes a machine learning algorithm that learns certain properties from a training dataset in order to make those predictions.</p>
+            <a href="#about2" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+          </div>
+        </div>
+      </div>
+      
+    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+    </a>
+
+    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+    </a>
+
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row content">
+        <div class="col-lg-6">
+          <style>
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        </style>
+        <br>
+        <br>
+          <img src="/static/img/xenonstack-credit-card-fraud-detection.png">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <br>
+          <br>
+          
+          <h3 style="font-weight: bold; text-align:center">ABOUT CREDIT CARD FRAUD DETECTION SYSTEM</h3>
+          <p style="text-align:center;">
+            Credit Card Fraud Detection with Machine Learning is a process of data investigation by a Data Science team and the development of a model that will provide the best results in revealing and preventing fraudulent transactions. This is achieved through bringing together all meaningful features of card users’ transactions, such as Date, User Zone, Product Category, Amount, Provider, Client’s Behavioral Patterns, etc. The information is then run through a subtly trained model that finds patterns and rules so that it can classify whether a transaction is fraudulent or is legitimate.
+            </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="about2" class="about">
+    <div class="container">
+
+      <div class="row content">
+        <div class="col-lg-6">
+          <style>
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        </style>
+        <br>
+        <br>
+          <img src="/static/img/rfc.jpg" style="width:600px; height:400px;">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <br>
+          <br>
+          <h3 style="font-weight: bold; text-align:center;">The Random Forest Classifier</h3>
+          <p style="text-align:center">Random forest is a supervised learning algorithm. The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method. The general idea of the bagging method is that a combination of learning models increases the overall result.
+
+            Put simply: random forest builds multiple decision trees and merges them together to get a more accurate and stable prediction.
+            
+            One big advantage of random forest is that it can be used for both classification and regression problems, which form the majority of current machine learning systems.</p>
+         <p style="text-align:center">
+          Random forest adds additional randomness to the model, while growing the trees. Instead of searching for the most important feature while splitting a node, it searches for the best feature among a random subset of features. This results in a wide diversity that generally results in a better model.
+
+          Therefore, in random forest, only a random subset of the features is taken into consideration by the algorithm for splitting a node.
+         </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock body %}
+
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--</div>

@@ -1,0 +1,75 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% endblock title %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% block body %}
+<!-- ======= Header ======= -->
+<section id="breadcrumbs" class="breadcrumbs" style="background-color:#E3E3E3">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h4>Add Files</h4>
+        <ol>
+          <li><a href="home">Home</a></li>
+          <li>Add Files</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+  <!-- ======= file upload Section ======= -->
+  <style>
+     form{
+        
+        margin : 10px 20px 10px 10px;
+
+        
+     }
+      h3.htag{
+        border-radius: 5px;
+        height: 50px;
+        background-color: #C3073F;
+        text-align: center;
+
+      }
+      .container1{
+        border-radius: 5px;
+        border: 3px solid #f5f3f7; 
+        width : 60%;
+        margin:auto;
+      }
+      .form-group{
+          margin:10px 20px 10px 10px;
+      }
+     
+  </style>
+  <div class='container'>
+    <br>
+  </div>
+  <div class="container1" >
+
+      <h3 class="htag">Upload Credit Card Dataset</h3>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="form-control btn btn-primary submit px-3">Submit</button>
+      </form> 
+  </div>
+  <div class='container'>
+    <br>
+  </div>
+{% endblock body %} 
+
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--</div>

@@ -1,0 +1,87 @@
+{% extends 'base1.html' %}
+{% load static %}
+
+{% block title %}{% endblock title %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% block body %}
+<!-- ======= Header ======= -->
+<section id="breadcrumbs" class="breadcrumbs" style="background-color:#E3E3E3">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h4>Dasboard</h4>
+        <ol>
+          <li><a href="home1">Home</a></li>
+          <li>Dasboard</li>
+        </ol>
+      </div>
+    </div>
+  </section><!-- End Breadcrumbs -->
+  <div class='container'>
+    <br>
+  <br>
+  </div>
+  <div class ="container" style='margin:auto;'>
+      <table class="table">
+        <thead > 
+          <tr style="background-color:#C3073F">
+            <th>File Name</th>
+            <th>File Name In Database</th>
+            <th style="text-align:center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for upload1 in uploads%}
+          <tr>
+            <td>{{ upload1.file_name }}</td>
+            <td>{{ upload1.uploadfile }}</td>
+            <td style="text-align:center">
+              <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2"  style='margin-right :40px;margin-left :105px;' role="group" aria-label="First group">
+              <form method ="post" action="{% url 'dataview'  upload1.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary" >View data</button>
+            </form>
+          </div>
+          <div class="btn-group mr-2" role="group" style='margin-right :40px;' aria-label="Second group">
+            <form method ="post" action="{% url 'prediction' upload1.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success" >Predictions</button>
+            </form>
+            </div>
+            <div class="btn-group mr-2" style='margin-right :40px;' role="group" aria-label="Third group">
+              <form method ="post" action="{% url 'analysis' upload1.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-warning" >Analysis</button>
+              </form>
+              </div>
+          <div class="btn-group mr-2" role="group"  aria-label="Fourth group">
+              <form method ="post" action="{% url 'deleteupload' upload1.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger" >Delete</button>
+            </form>
+          </div>
+            </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class='container'>
+      <br>
+    </div>  
+ 
+{% endblock body %}
+
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--</div>

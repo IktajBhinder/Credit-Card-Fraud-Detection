@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% csrf_token %}
+{% block title %}{% endblock title %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+{% block body %}
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/style1.css">
+   
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="wrap d-md-flex">
+                    <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+                        <div class="text w-100">
+                            <h2>Welcome to Credit Card Fraud Detection Login Page.</h2>
+                            <br>
+                            <br><p>Kindly login with the Superuser details that you have created using Django ADMIN</p>
+                            
+                        </div>
+              </div>
+                    <div class="login-wrap p-4 p-lg-5">
+                  <div class="d-flex">
+                      <div class="w-100">
+                          <h3 class="mb-4">Sign In</h3>
+                      </div>
+                            <div class="w-100">
+                                <p class="social-media d-flex justify-content-end">
+                            
+                                    <a href="https://github.com/19BCS3815/CreditCardFraud" target="_blank" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-github"></span></a>
+                                    
+                                        <!--<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+                                    -->  </p>
+                            </div>
+                  </div>
+                        <form action="signin" method="POST">
+                            {% csrf_token %}
+                      <div class="form-group mb-3">
+                          <label class="label" for="">Username</label>
+                          <input type="text" name="username" class="form-control" placeholder="Username" required>
+                      </div>
+                <div class="form-group mb-3">
+                    <label class="label" for=" ">Password</label>
+                  <input type="password" name = "pass1" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                </div>
+                <div class="form-group d-md-flex">
+                    <div class="w-50 text-left">
+                        <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+                                  <input type="checkbox" checked>
+                                  <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="#"></a>
+                                </div>
+                </div>
+              </form>
+            </div>
+          </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/main1.js"></script>
+
+</body>
+
+{% endblock body %}
+
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--</div>

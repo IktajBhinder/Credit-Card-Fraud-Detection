@@ -1,0 +1,206 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  
+{% block body %}
+<!-- ======= Header ======= -->
+
+<section id="breadcrumbs" class="breadcrumbs" style="background-color:#E3E3E3">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h4>CREDIT CARD DATASET VIEW</h4>
+        <ol>
+          <li><a href="home1">Home</a></li>
+          <li>ViewData</li>
+        </ol>
+      </div>
+    </div>
+  </section><!-- End Breadcrumbs -->
+  <div class='container'>
+  <br>
+
+  </div>
+  <div class ="container">
+    <table class="table">
+      <thead > 
+        <tr style="background-color:#C3073F">
+          <th>File Name</th>
+          <th>File Name In Database</th>
+          <th style="text-align:center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ upload.file_name }}</td>
+          <td>{{ upload.uploadfile }}</td>
+          <td style="text-align:center">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2"  style='margin-right :40px;margin-left :105px;' role="group" aria-label="First group">
+            <form method ="post" action="{% url 'dataview'  upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" >View data</button>
+          </form>
+        </div>
+        <div class="btn-group mr-2" role="group" style='margin-right :40px;' aria-label="Second group">
+          <form method ="post" action="{% url 'prediction' upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success" >Predictions</button>
+          </form>
+          </div>
+          <div class="btn-group mr-2" style='margin-right :40px;' role="group" aria-label="Third group">
+            <form method ="post" action="{% url 'analysis' upload.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-warning" >Analysis</button>
+            </form>
+            </div>
+        <div class="btn-group mr-2" role="group"  aria-label="Fourth group">
+            <form method ="post" action="{% url 'deleteupload' upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger" >Delete</button>
+          </form>
+        </div>
+          </div>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+
+  
+<link rel="stylesheet" type="text/css" src="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" src="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+ 
+   <div class="container" style="overflow-x:auto;" style="padding-bottom: 50px;">
+   <div class="container">
+    <br>
+    <br>
+   </div>
+
+  <table class="table table-light table-bordered" id="myTable" style="border: 1px solid pink;
+  border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>SN</th>
+        <th>Time</th>
+        <th>V1</th>
+        <th>V2</th>
+        <th>V3</th>
+        <th>V4</th>
+        <th>V5</th>
+        <th>V6</th>
+        <th>V7</th>
+        <th>V8</th>
+        <th>V9</th>
+        <th>V10</th>
+        <th>V11</th>
+        <th>V12</th>
+        <th>V13</th>
+        <th>V14</th>
+        <th>V15</th>
+        <th>V16</th>
+        <th>V17</th>
+        <th>V18</th>
+        <th>V19</th>
+        <th>V20</th>
+        <th>V21</th>
+        <th>V22</th>
+        <th>V23</th>
+        <th>V24</th>
+        <th>V25</th>
+        <th>V26</th>
+        <th>V27</th>
+        <th>V28</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if d %}  
+    {% for i in d  %}
+        {% if  forloop.counter <= 500 %}
+            <tr>
+              <td>{{i.SN}}</td>
+              <td>{{i.Time}}</td>
+              <td>{{i.V1}}</td>
+              <td>{{i.V2}}</td>
+              <td>{{i.V3}}</td>
+              <td>{{i.V4}}</td>
+              <td>{{i.V5}}</td>
+              <td>{{i.V6}}</td>
+              <td>{{i.V7}}</td>
+              <td>{{i.V8}}</td>
+              <td>{{i.V9}}</td>
+              <td>{{i.V10}}</td>
+              <td>{{i.V11}}</td>
+              <td>{{i.V12}}</td>
+              <td>{{i.V13}}</td>
+              <td>{{i.V14}}</td>
+              <td>{{i.V15}}</td>
+              <td>{{i.V16}}</td>
+              <td>{{i.V17}}</td>
+              <td>{{i.V18}}</td>
+              <td>{{i.V19}}</td>
+              <td>{{i.V20}}</td>
+              <td>{{i.V21}}</td>
+              <td>{{i.V22}}</td>
+              <td>{{i.V23}}</td>
+              <td>{{i.V24}}</td>
+              <td>{{i.V25}}</td>
+              <td>{{i.V26}}</td>
+              <td>{{i.V27}}</td>
+              <td>{{i.V28}}</td>
+              <td>{{i.Amount}}</td>
+            </tr>
+            {% endif %}    
+      
+    {% endfor %}
+    {% endif %}
+    </tbody>
+    
+  </table>
+  
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+<script>
+  $(document).ready( function () {
+  $('#myTable').DataTable( {
+    
+} );
+} );
+  </script>
+    
+    
+    <div class="container" style="padding-bottom: 50px;">
+
+    </div>
+ 
+{% endblock body %}
+
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--<div class="alert_0">-->
+<!--      <strong>Request Project!</strong> For other projects contact us.-->
+<!--    Charges as per level of the project.-->
+<!--    </div>-->
+<!--</div>

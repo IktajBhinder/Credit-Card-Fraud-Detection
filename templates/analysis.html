@@ -1,0 +1,213 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  
+{% block body %}
+<!-- ======= Header ======= -->
+<section id="breadcrumbs" class="breadcrumbs" style="background-color:#E3E3E3">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h4>CREDIT CARD DATASET ANALYSIS</h4>
+        <ol>
+          <li><a href="home1">Home</a></li>
+          <li>Analysis</li>
+        </ol>
+      </div>
+    </div>
+  </section><!-- End Breadcrumbs -->
+  <div class='container'>
+    <br>
+  
+    </div>
+  <div class ="container">
+    <table class="table">
+      <thead > 
+        <tr style="background-color:#C3073F">
+          <th>File Name</th>
+          <th>File Name In Database</th>
+          <th style="text-align:center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ upload.file_name }}</td>
+          <td>{{ upload.uploadfile }}</td>
+          <td style="text-align:center">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2"  style='margin-right :40px;margin-left :105px;' role="group" aria-label="First group">
+            <form method ="post" action="{% url 'dataview'  upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary" >View data</button>
+          </form>
+        </div>
+        <div class="btn-group mr-2" role="group" style='margin-right :40px;' aria-label="Second group">
+          <form method ="post" action="{% url 'prediction' upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success" >Predictions</button>
+          </form>
+          </div>
+          <div class="btn-group mr-2" style='margin-right :40px;' role="group" aria-label="Third group">
+            <form method ="post" action="{% url 'analysis' upload.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-warning" >Analysis</button>
+            </form>
+            </div>
+        <div class="btn-group mr-2" role="group"  aria-label="Fourth group">
+            <form method ="post" action="{% url 'deleteupload' upload.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger" >Delete</button>
+          </form>
+        </div>
+          </div>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+<style>
+h3.htag{
+  border: 5px;
+  height: 40px;
+  background-color: #c5d5cd;
+  align-content:center;
+  text-align: center;
+ 
+  
+}
+</style>
+
+  <div class='container' style="background-color:#E3E3E3">
+   <style>
+     th{
+          text-align: center;
+     }
+   </style>
+
+      <div class="row">
+        <h3 class="htag" style="width: 100%;">Analysis of the Dataset</h3>
+        <table class="table table-hover table-dark table-bordered" style="width:80%; margin-left:110px" >
+            <thead>
+             
+                <tr>
+                    <th>Categories</th>
+                    <th>Values</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+              {% if d %} 
+                <tr>
+                    <td>Data Shape</td>
+                    <td>{{ d.dshape}}</td>
+                </tr>
+                <tr>
+                  <td>Unique Target Values of Predicted class</td>
+                  <td>{{ d.uniqueId  }}</td>
+                </tr>
+                <tr>
+                   <td>Total Number of Transactions in Dataset</td>
+                   <td>{{d.totalrec}}</td>
+               </tr>
+               <tr>
+                <td>Total fraud Transactions in Dataset</td>
+                <td>{{d.fraud}}</td>
+               </tr>
+               <tr>
+                <td>Total Non-fraud Transactions in Dataset</td>
+                <td>{{d.nonfcount}}</td>
+               </tr>
+                <tr>
+                   <td>Percentage of Customers With Credit Fraud Problems</td>
+                   <td>{{d.fraudper}}%</td>
+               </tr>
+               <tr>
+                   <td>Percentage of Customers Without Credit Fraud Problems</td>
+                   <td>{{d.nonf}}%</td>
+               </tr>
+               
+                {% endif %}  
+            </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <h3 class="htag">Analysis of Fraudulent Cases Using Line Chart</h3>
+        <form method ="post" action="line">
+          {% csrf_token %}
+          <label for="cars">Choose:</label>
+          <select id="cars" name="cars">
+          <option value="Amount">Amount</option>
+          <option value="V1">V1</option>
+          <option value="V2">V2</option>
+          <option value="V3">V3</option>
+          <option value="V4">V3</option>
+          <option value="V5">V5</option>
+          <option value="V6">V6</option>
+          <option value="V7">V7</option>
+          <option value="V8">V8</option>
+          <option value="V9">V9</option>
+          <option value="V10">V10</option>
+          <option value="V11">V11</option>
+          <option value="V12">V12</option>
+          <option value="V13">V13</option>
+          <option value="V14">V14</option>
+          <option value="V15">V15</option>
+          <option value="V16">V16</option>
+          <option value="V17">V17</option>
+          <option value="V18">V18</option>
+          <option value="V19">V19</option>
+          <option value="V20">V20</option>
+          <option value="V21">V21</option>
+          <option value="V22">V22</option>
+          <option value="V23">V23</option>
+          <option value="V24">V24</option>
+          <option value="V25">V25</option>
+          <option value="V26">V26</option>
+          <option value="V27">V27</option>
+          <option value="V28">V28</option>
+          <option value="Time">Time</option>
+          </select>
+          <button type="submit" class="btn btn-success" >Submit</button>
+        </form>
+        <img src="data:image/png;base64, {{line_chart | safe}}">
+    </div> 
+   
+      <div class="row">
+        <h3 class="htag">Analysis of Time and Amount Variables</h3>
+        {% if dis_plot %}
+        <img src="data:image/png;base64, {{dis_plot | safe}}">
+        {% endif %}
+      </div> 
+      <div class="row">
+        <h3 class="htag">Total Value of Fraud And Normal Transactions</h3>
+        {% if barchart %}
+        <img src="data:image/png;base64, {{barchart | safe}}" >
+        {% endif %}
+    </div> 
+    
+    <div class="row" >
+      <h3 class="htag">Data Description</h3>
+      <div style="overflow-x:auto;">
+        {{d.describe |safe}}
+      </div>
+    </div> 
+    <div class="row">
+      
+        <h3 class="htag">Correlation Heatmap</h3>
+        <img src="data:image/png;base64, {{corr | safe}}">
+    </div> 
+    <div class='container'>
+      <br>
+    
+      </div>
+  </div>
+  <div class='container'>
+    <br>
+  <br>
+    </div>
+{% endblock body %}
